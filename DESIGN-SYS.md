@@ -1,72 +1,266 @@
-# DESIGN SYSTEM SPECIFICATION (DESIGN-SYS)
-## Tokopedia UI Token & Component Library (Zeus / UNIFY Foundation)
-**Proyek:** Fitur Ulasan Relevan – Tokopedia  
-**Versi:** 2.0  
+# DESIGN SYSTEM
+**Project:** Ulasan Relevan – Tokopedia  
+**Version:** 1.0  
+**Status:** Draft  
+**Reference:** PRD.md (versi belum ditentukan), UX-SPEC.md v1.0  
 
 ---
 
-## 1. Color Palette Tokens
+## 1. Design Direction
 
-| Token Name | Hex Code | Deskripsi & Aturan Penggunaan |
+### 1.1 Design Concept
+**Modern Marketplace: Clean, Trustworthy, dan Information-Focused.**  
+Karakteristik desain:
+- Antarmuka bersih dan minimalis.
+- Hierarki visual yang jelas dan mengutamakan keterbacaan.
+- Spacing konsisten.
+- Latar netral dengan hijau sebagai identitas utama.
+- Card untuk mengelompokkan informasi.
+- Interaksi sederhana dan mudah dikenali.
+- Responsif pada desktop, tablet, dan mobile.
+
+### 1.2 Design Principles
+- **Clarity:** Informasi ulasan harus mudah dibaca.
+- **Consistency:** Seluruh bagian menggunakan aturan visual yang sama.
+- **Simplicity:** Hindari elemen dekoratif yang tidak diperlukan.
+- **Accessibility:** Pastikan kontras warna dan keterbacaan memadai.
+- **Scalability:** Komponen harus dapat digunakan kembali.
+
+---
+
+## 2. Color System
+
+### 2.1 Primary Colors
+| Token | Hex | Usage |
 |---|---|---|
-| `--color-primary-main` | `#00AA5B` | Hijau Utama Tokopedia. Digunakan untuk CTA primer, chip aktif, dan aksen brand. |
-| `--color-primary-hover` | `#038848` | Hijau gelap untuk hover state dan header bar navigasi. |
-| `--color-primary-surface` | `#E8F5E9` | Hijau sangat muda untuk latar belakang chip aktif, badge official store, dan highlight. |
-| `--color-neutral-900` | `#212121` | Teks utama, judul produk, nama pembeli (kontras tinggi WCAG AAA). |
-| `--color-neutral-600` | `#6D7588` | Teks sekunder, deskripsi, tanggal ulasan, label placeholder. |
-| `--color-neutral-300` | `#E4E7E9` | Garis batas (border), divider, separator kartu. |
-| `--color-neutral-100` | `#F5F5F7` | Latar belakang canvas abu-abu lembut khas aplikasi Tokopedia. |
-| `--color-accent-orange` | `#FF5722` | Label diskon, status mendesak (*urgent*), badge keluhan sedang. |
-| `--color-accent-yellow` | `#FFAB00` | Bintang rating ulasan produk. |
+| Primary | `#03AC0E` | Tombol utama, identitas visual, elemen aktif |
+| Primary Dark | `#008A0A` | Hover dan active state |
+| Primary Light | `#E8F8E9` | Background elemen aktif atau terpilih |
+| Primary Soft | `#F3FBF3` | Background area pendukung |
+
+### 2.2 Neutral Colors
+| Token | Hex | Usage |
+|---|---|---|
+| Background | `#F5F6F8` | Background halaman |
+| Surface | `#FFFFFF` | Card dan panel |
+| Border | `#E5E7EB` | Garis pembatas |
+| Text Primary | `#212121` | Judul dan teks utama |
+| Text Secondary | `#6D7588` | Deskripsi dan informasi tambahan |
+| Text Muted | `#9AA0A6` | Metadata |
+
+### 2.3 Semantic Colors
+| Token | Hex | Usage |
+|---|---|---|
+| Success | `#16A34A` | Informasi positif |
+| Warning | `#F59E0B` | Peringatan |
+| Danger | `#DC2626` | Informasi negatif |
+| Info | `#2563EB` | Informasi umum |
+
+### 2.4 Rating and Filter State Colors
+| Status | Color | Background |
+|---|---|---|
+| Bintang aktif | `#F59E0B` | Tidak berlaku |
+| Bintang tidak aktif | `#D1D5DB` | Tidak berlaku |
+| Filter terpilih | `#008A0A` (teks), `#03AC0E` (border) | `#E8F8E9` |
+| Filter tidak terpilih | `#212121` (teks), `#E5E7EB` (border) | `#FFFFFF` |
+
+*Warna tidak boleh menjadi satu-satunya penanda status. Warna rating tidak boleh digunakan untuk menunjukkan status filter.*
 
 ---
 
-## 2. Typography Scale
+## 3. Typography System
 
-Menggunakan font keluarga `Open Sans` dan fallback `system-ui, -apple-system, sans-serif`:
+### 3.1 Font Family
+- **Primary Font:** Inter
+- **Fallback:** `system-ui`, `sans-serif`
 
-| Skala Tipografi | Ukuran (px) | Weight | Line Height | Contoh Penggunaan |
-|---|---|---|---|---|
-| `Heading-XL` | 20px / 1.25rem | 800 (Extrabold) | 28px | Harga utama produk |
-| `Heading-LG` | 16px / 1.00rem | 700 (Bold) | 24px | Judul produk, Judul Modal |
-| `Heading-MD` | 14px / 0.875rem | 700 (Bold) | 20px | Subjudul section, Judul Pros/Cons |
-| `Body-Regular` | 12px / 0.75rem | 400 (Regular) | 18px | Isi ulasan pembeli, detail deskripsi |
-| `Body-Bold` | 12px / 0.75rem | 600 (Semibold) | 18px | Nama reviewer, Tombol CTA |
-| `Caption` | 10px / 0.625rem | 600 (Semibold) | 14px | Badge aspek, tanggal, persentase |
+### 3.2 Typography Scale
+| Token | Size | Weight | Usage |
+|---|---|---|---|
+| Display | 32px | 700 | Sorotan angka, misalnya rating rata-rata |
+| H1 | 28px | 700 | Page title |
+| H2 | 22px | 700 | Section heading |
+| H3 | 18px | 600 | Card heading |
+| Body Large | 16px | 400 | Main content |
+| Body | 14px | 400 | Default text |
+| Body Small | 13px | 400 | Secondary text |
+| Caption | 12px | 400 | Metadata |
+| Button | 14px | 600 | Button text |
 
----
-
-## 3. Spacing & Elevation System (8pt Grid)
-
-- **Spacing Tokens:**
-  - `space-1`: 4px (padding badge mikro)
-  - `space-2`: 8px (jarak antar tag/chip)
-  - `space-3`: 12px (padding internal kartu ulasan)
-  - `space-4`: 16px (padding horizontal container utama)
-  - `space-6`: 24px (jarak antar section besar)
-- **Elevation Tokens:**
-  - `elevation-card`: `0 1px 3px rgba(0, 0, 0, 0.06)` (Border tipis `#E4E7E9` + subtle shadow)
-  - `elevation-modal`: `0 20px 25px -5px rgba(0, 0, 0, 0.25)` (Backdrop blur `rgba(0,0,0,0.75)`)
-  - `elevation-sticky`: `0 -2px 10px rgba(0, 0, 0, 0.05)` (Bottom sticky buy bar)
+**Line height:**
+- Heading: 1.2–1.4
+- Body: 1.5
+- Caption: 1.4
 
 ---
 
-## 4. Component Anatomy
+## 4. Spacing System
+Gunakan kelipatan 4px.
+| Token | Value | Usage |
+|---|---|---|
+| `space-1` | 4px | Small inline gap |
+| `space-2` | 8px | Compact spacing |
+| `space-3` | 12px | Component spacing |
+| `space-4` | 16px | Standard padding dan jarak antarkartu minimal |
+| `space-5` | 20px | Section spacing |
+| `space-6` | 24px | Card spacing |
+| `space-8` | 32px | Large section spacing |
+| `space-10` | 40px | Page separation |
+| `space-12` | 48px | Major layout spacing |
 
-### 4.1 Filter Chip (Aspek Ulasan)
-- **Default State:** Background `#F5F5F7`, border transparent, teks `#6D7588`, pill counter `#E4E7E9`.
-- **Hover State:** Background `#E4E7E9`.
-- **Active State:** Background `#00AA5B`, teks putih, font-weight 700, pill counter putih semi-transparan (`rgba(255,255,255,0.2)`).
+---
 
-### 4.2 Pros & Cons Synthesis Cards (FR-03)
-- **Pros Card:** Border `#A7F3D0` (Emerald-200), latar `#ECFDF5`, icon checkmark hijau, badge persentase sentimen.
-- **Cons Card:** Border `#FDE68A` (Amber-200), latar `#FFFBEB`, icon alert kuning/oranye, badge frekuensi keluhan.
+## 5. Layout System
 
-### 4.3 Photo Lightbox Modal (FR-05)
-- Header gelap dengan tombol dismiss `✕` yang mudah dijangkau.
-- Area display gambar berlatar hitam pekat (`#000000`) dengan mode `object-contain`.
-- Area keterangan ulasan di bagian bawah berlatar putih dengan font legible dan kutipan pembeli asli.
+### 5.1 Main Layout
+- **Desktop:**
+  - Sidebar: tidak berlaku.
+  - Grid fleksibel; informasi produk dapat dua kolom dan ringkasan tiga kolom.
+  - Page padding: 32px.
+  - Content maximum width: 1440px, berada di tengah pada layar lebar.
+- **Tablet:**
+  - Grid dapat berubah menjadi dua kolom.
+  - Page padding: 24px.
+- **Mobile:**
+  - Single-column layout.
+  - Page padding: 16px.
+  - Primary actions selebar penuh.
 
-### 4.4 Wireframe Mode Tokens (Low-Fidelity Grayscale)
-- Palet warna: Murni `#000000`, `#FFFFFF`, dan shades of `#6B7280` / `#E5E7EB`.
-- Komponen gambar: Box blueprint bergaris putus-putus (`border-dashed border-gray-400`) dengan icon silang `✕`.
+### 5.2 Responsive Breakpoints
+| Breakpoint | Width | Layout |
+|---|---|---|
+| Mobile | < 640px | Single column |
+| Tablet | 640–1023px | Adaptive layout |
+| Desktop | ≥ 1024px | Multi-column layout |
+| Wide Desktop | ≥ 1440px | Maximum content width |
+
+---
+
+## 6. Component Design Specifications
+
+### 6.1 Buttons
+- **Types:**
+  - Primary Button: background Primary (`#03AC0E`), teks putih.
+  - Secondary Button: background putih, border Border (`#E5E7EB`), teks Text Primary (`#212121`).
+  - Disabled Button: warna netral dan tidak menerima interaksi.
+  - Icon Button: untuk aksi seperti menutup preview.
+- **Specifications:**
+  - Default height: 40px.
+  - Horizontal padding: 16px.
+  - Border radius: 8px.
+  - Font size: 14px.
+  - Font weight: 600.
+  - Transition: 150ms.
+
+### 6.2 Filter Controls
+- **Types:**
+  - Filter Chip (filter aspek).
+  - Toggle (Dengan Foto).
+- **Specifications Filter Chip:**
+  - Default: background putih, border abu-abu, teks gelap.
+  - Selected: background Primary Light (`#E8F8E9`), border Primary (`#03AC0E`), teks Primary Dark (`#008A0A`), font weight 600.
+  - Hover: background netral atau Primary Light.
+  - Border radius: 8px.
+- **Specifications Toggle:**
+  - Memiliki label yang jelas ("Dengan Foto").
+  - Aktif menggunakan warna Primary (`#03AC0E`); nonaktif menggunakan warna netral.
+
+### 6.3 Cards
+- **Specifications:**
+  - Background: `#FFFFFF`.
+  - Border: 1px solid `#E5E7EB`.
+  - Border radius: 12px.
+  - Padding: 20px.
+  - Shadow: subtle.
+  - Card spacing: 16px.
+- **Types:**
+  - Product Information Card: foto, nama, harga, rating, jumlah ulasan, dan nama toko.
+  - Review Summary Card: Kelebihan, Kekurangan, dan Keluhan Umum dengan heading jelas, bullet list, ikon pendukung, tanpa paragraf panjang.
+  - Review Card: identitas reviewer, rating, tanggal, badge aspek, isi ulasan, dan foto opsional berukuran responsif.
+
+### 6.4 Aspect Badge
+- **Specifications:**
+  - Border radius: 999px.
+  - Padding: 4px 10px.
+  - Font size: 12px.
+  - Font weight: 500.
+  - Background netral dengan teks yang tetap terbaca.
+- **Variants:**
+  - Kualitas
+  - Fungsi
+  - Kesesuaian dengan Deskripsi
+  - Pengiriman
+
+### 6.5 Modal
+- Background: white.
+- Border radius: 12px.
+- Maximum width: 480px.
+- Padding: 24px.
+- Overlay: dark translucent background.
+- Usage: Preview foto ulasan, dengan tombol tutup.
+
+---
+
+## 7. Review Component
+
+### 7.1 Review Section
+- Review overview (rating rata-rata dan total ulasan).
+- Tiga kartu ringkasan (Kelebihan, Kekurangan, Keluhan Umum).
+- Filter chip aspek.
+- Toggle Dengan Foto.
+- Daftar review card.
+
+### 7.2 Empty State
+- Ikon atau ilustrasi sederhana.
+- Judul: **Tidak ada ulasan ditemukan.**
+- Deskripsi: *"Coba ubah pilihan aspek atau nonaktifkan filter foto untuk melihat ulasan lainnya."*
+- Tombol: **Tampilkan Semua Ulasan**
+
+---
+
+## 8. Iconography (Lucide Icons)
+- Standard size: 20px. Small: 16px. Large: 24px.
+- Rating: `Star`
+- Photo filter: `Image`
+- Kelebihan: `CircleCheck`
+- Kekurangan: `CircleMinus`
+- Keluhan Umum: `CircleAlert`
+- Close preview: `X`
+
+---
+
+## 9. Design Tokens
+```json
+{
+  "color": {
+    "primary": "#03AC0E",
+    "primaryDark": "#008A0A",
+    "primaryLight": "#E8F8E9",
+    "primarySoft": "#F3FBF3",
+    "background": "#F5F6F8",
+    "surface": "#FFFFFF",
+    "border": "#E5E7EB",
+    "textPrimary": "#212121",
+    "textSecondary": "#6D7588",
+    "textMuted": "#9AA0A6",
+    "success": "#16A34A",
+    "warning": "#F59E0B",
+    "danger": "#DC2626",
+    "info": "#2563EB"
+  },
+  "radius": {
+    "sm": "8px",
+    "md": "12px",
+    "full": "999px"
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px"
+  }
+}
+```
+
+*End of DESIGN-SYSTEM v1.0*
